@@ -1,2 +1,8 @@
-<div><h1>Hello World</h1></div>
+<div><h1>Upcoming Departures from MetroTransit Stop #{{transitStop.id}}</h1></div>
+<div class="departures">
+  <departure ng-repeat="departure in departures|orderBy:'DepartureTime'">
+    
+  </departure>
+</div>
+<a ui-sref="login">Login</a>
 <a ui-sref="signup">Sign Up</a>

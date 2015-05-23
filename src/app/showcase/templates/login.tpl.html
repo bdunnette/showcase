@@ -1,0 +1,8 @@
+<h1>Login</h1>
+<form name="loginForm" ng-submit="loginUser(user)">
+  <input type="text" ng-model="user.username" required/>
+  <input type="password" ng-model="user.password" required/>
+  <input type="submit" value="Login" ng-disabled="loginForm.$invalid"/>
+</form>
+<div class="alert alert-danger" ng-repeat="error in errors" ng-click="removeError($index)">{{error.msg}}</div>
+<a ui-sref="signup">Sign Up</a>
