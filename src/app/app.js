@@ -5,15 +5,18 @@ angular.module('bookbottles-showcase', ['ui.router', 'templates-app'])
   $stateProvider.state('home', {
     url: '/',
     templateUrl: 'showcase/templates/home.tpl.html',
-    controller: 'DashboardCtrl'
+    controller: 'DashboardCtrl',
+    authenticate: true
   }).state('signup', {
     url: '/signup',
     templateUrl: 'showcase/templates/signup.tpl.html',
-    controller: 'SignupCtrl'
+    controller: 'SignupCtrl',
+    authenticate: false
   }).state('login', {
     url: '/login',
     templateUrl: 'showcase/templates/login.tpl.html',
-    controller: 'LoginCtrl'
+    controller: 'LoginCtrl',
+    authenticate: false
   });
 
   $urlRouterProvider.otherwise('/');
@@ -77,6 +80,7 @@ angular.module('bookbottles-showcase', ['ui.router', 'templates-app'])
       $rootScope.user = user;
       $state.go('home');
     }, function(error) {
+      $rootScope.user = null;
       $scope.errors.push({
         msg: error
       });
